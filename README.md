@@ -28,6 +28,29 @@ This repository contains the Data Cleaning & Visualization project (Google Analy
 
 ```
 02_Data_Cleaning_Visualization/
+│
+├── README.md                          # Project documentation
+├── data_cleaning_analysis.py          # Main Python cleaning pipeline
+├── data_cleaning_analysis.ipynb       # Jupyter notebook for interactive analysis
+├── requirements.txt                   # Python dependencies
+├── .gitignore                         # Git ignore rules
+│
+├── data/
+│   ├── raw/
+│   │   └── google_analytics_export.csv    # Raw data file (85 MB)
+│   │
+│   └── processed/
+│       ├── cleaned_data.csv                # Cleaned and transformed dataset
+│       └── data_quality_report.csv         # Automated quality metrics report
+│
+└── outputs/
+    ├── dashboards/
+    │   ├── README.md                       # Dashboard documentation
+    │   └── analytics_dashboard.twbx        # Tableau dashboard (to be created)
+    │
+    └── sql_queries/
+        └── analysis_queries.sql            # SQL analysis queries (10 queries)
+```
 âÂř README.md
 âÂř data_cleaning_analysis.py
 âÂš data_cleaning_analysis.ipynb
