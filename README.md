@@ -1,4 +1,4 @@
-# Google Analytics Data Cleaning & Visualization
+﻿# Google Analytics Data Cleaning & Visualization
 
 Professional data wrangling & business intelligence project. Cleans and visualizes 150,000+ Google Analytics user session events with 99%+ data accuracy.
 
@@ -28,43 +28,37 @@ This repository contains the Data Cleaning & Visualization project (Google Analy
 
 ```
 02_Data_Cleaning_Visualization/
-│
-├── README.md                          # Project documentation
-├── data_cleaning_analysis.py          # Main Python cleaning pipeline
-├── data_cleaning_analysis.ipynb       # Jupyter notebook for interactive analysis
-├── requirements.txt                   # Python dependencies
-├── .gitignore                         # Git ignore rules
-│
-├── data/
-│   ├── raw/
-│   │   └── google_analytics_export.csv    # Raw data file (85 MB)
-│   │
-│   └── processed/
-│       ├── cleaned_data.csv                # Cleaned and transformed dataset
-│       └── data_quality_report.csv         # Automated quality metrics report
-│
-└── outputs/
-    ├── dashboards/
-    │   ├── README.md                       # Dashboard documentation
-    │   └── analytics_dashboard.twbx        # Tableau dashboard (to be created)
-    │
-    └── sql_queries/
-        └── analysis_queries.sql            # SQL analysis queries (10 queries)
+â”‚
+â”œâ”€â”€ README.md                          # Project documentation
+â”œâ”€â”€ data_cleaning_analysis.py          # Main Python cleaning pipeline
+â”œâ”€â”€ data_cleaning_analysis.ipynb       # Jupyter notebook for interactive analysis
+â”œâ”€â”€ requirements.txt                   # Python dependencies
+â”œâ”€â”€ .gitignore                         # Git ignore rules
+â”‚
+â”œâ”€â”€ data/
+â”‚   â”œâ”€â”€ raw/
+â”‚   â”‚   â””â”€â”€ google_analytics_export.csv    # Raw data file (85 MB)
+â”‚   â”‚
+â”‚   â””â”€â”€ processed/
+â”‚       â”œâ”€â”€ cleaned_data.csv                # Cleaned and transformed dataset
+â”‚       â””â”€â”€ data_quality_report.csv         # Automated quality metrics report
+â”‚
+â””â”€â”€ outputs/
+    â”œâ”€â”€ dashboards/
+    â”‚   â”œâ”€â”€ README.md                       # Dashboard documentation
+    â”‚   â””â”€â”€ analytics_dashboard.twbx        # Tableau dashboard (to be created)
+    â”‚
+    â””â”€â”€ sql_queries/
+        â””â”€â”€ analysis_queries.sql            # SQL analysis queries (10 queries)
 ```
-    âÂ­ dashboards/
-    âÂ­âÂə analytics_dashboard.twbx
-    âÂ­âÂ­ sql_queries/
-    âÂ­âÂə analysis_queries.sql
-```
-
 ## Key Achievements
 
-✅ **40% Time Savings** - Automated reporting pipeline  
-✅ **99%+ Data Accuracy** - Comprehensive cleaning validation  
-✅ **150,000+ Records** - Successfully processed and transformed  
-✅ **Zero Duplicates** - Duplicate detection and removal  
-✅ **Complete Coverage** - Missing value imputation strategy  
-✅ **Data Quality Score** - 98.5% validated records
+âœ… **40% Time Savings** - Automated reporting pipeline  
+âœ… **99%+ Data Accuracy** - Comprehensive cleaning validation  
+âœ… **150,000+ Records** - Successfully processed and transformed  
+âœ… **Zero Duplicates** - Duplicate detection and removal  
+âœ… **Complete Coverage** - Missing value imputation strategy  
+âœ… **Data Quality Score** - 98.5% validated records
 
 ## Challenges Handled
 
@@ -209,7 +203,7 @@ python data_cleaning_analysis.py
 - Data governance and metadata management
 
 
-## 📚 Resources & Data Sources
+## ðŸ“š Resources & Data Sources
 
 **Project 2: Data Cleaning & Visualization**
 - **Primary Source:** [Google Analytics Public Dataset](https://console.cloud.google.com/marketplace/product/obreserved/ga-pub)
