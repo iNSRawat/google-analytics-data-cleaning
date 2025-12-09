@@ -53,12 +53,12 @@ This repository contains the Data Cleaning & Visualization project (Google Analy
 ```
 ## Key Achievements
 
-âœ… **40% Time Savings** - Automated reporting pipeline  
-âœ… **99%+ Data Accuracy** - Comprehensive cleaning validation  
-âœ… **150,000+ Records** - Successfully processed and transformed  
-âœ… **Zero Duplicates** - Duplicate detection and removal  
-âœ… **Complete Coverage** - Missing value imputation strategy  
-âœ… **Data Quality Score** - 98.5% validated records
+✅ **40% Time Savings** - Automated reporting pipeline  
+✅ **99%+ Data Accuracy** - Comprehensive cleaning validation  
+✅ **150,000+ Records** - Successfully processed and transformed  
+✅ **Zero Duplicates** - Duplicate detection and removal  
+✅ **Complete Coverage** - Missing value imputation strategy  
+✅ **Data Quality Score** - 98.5% validated records
 
 ## Challenges Handled
 
