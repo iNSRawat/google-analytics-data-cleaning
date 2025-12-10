@@ -199,4 +199,36 @@ elif page == "Quality Report":
 
 # Footer
 st.markdown("---")
-st.markdown("**Deploy this app on [Streamlit Cloud](https://streamlit.io/cloud) for free!**")
+
+# Donation Section
+st.markdown("### 💰 You can help me by Donating")
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown(
+        """
+        <a href="https://www.buymeacoffee.com/nsrawat" target="_blank">
+            <img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" style="width: 200px;">
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+with col2:
+    st.markdown(
+        """
+        <a href="https://paypal.me/nsrawat" target="_blank">
+            <img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal" style="width: 200px;">
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Author Credit
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <p>Made with ❤️ by <a href="https://nsrawat.in" target="_blank" style="text-decoration: none; color: #1f77b4;">N S Rawat</a></p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
