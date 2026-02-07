@@ -100,21 +100,21 @@ def render_footer():
             st.markdown("---")
             
             # Donation Section
-            st.markdown("#### 💰 You can help me by Donating")
+            st.markdown('<h4 style="color: white; margin-bottom: 20px;">💰 You can help me by Donating</h4>', unsafe_allow_html=True)
             col1, col2, col3 = st.columns(3)
             with col1:
                 st.markdown(
-                    '<a href="https://www.buymeacoffee.com/nsrawat?ref=Streamlit.app" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #FFDD00; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">☕ Buy Me a Coffee</div></a>',
+                    '<a href="https://www.buymeacoffee.com/nsrawat?ref=Streamlit.app" target="_blank" style="text-decoration: none;"><div style="background-color: #FFDD00; color: #000000 !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%; transition: 0.3s;">☕ Buy Me a Coffee</div></a>',
                     unsafe_allow_html=True
                 )
             with col2:
                 st.markdown(
-                    '<a href="https://paypal.me/NRawat710?ref=Streamlit.app" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #00457C; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">💳 PayPal</div></a>',
+                    '<a href="https://paypal.me/NRawat710?ref=Streamlit.app" target="_blank" style="text-decoration: none;"><div style="background-color: #00457C; color: #FFFFFF !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%; transition: 0.3s;">💳 PayPal</div></a>',
                     unsafe_allow_html=True
                 )
             with col3:
                 st.markdown(
-                    '<a href="https://withupi.com/@nsrawat?ref=Streamlit.app" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #4CAF50; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">₹ UPI</div></a>',
+                    '<a href="https://withupi.com/@nsrawat?ref=Streamlit.app" target="_blank" style="text-decoration: none;"><div style="background-color: #4CAF50; color: #FFFFFF !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%; transition: 0.3s;">₹ UPI</div></a>',
                     unsafe_allow_html=True
                 )
             
