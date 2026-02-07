@@ -1,0 +1,21 @@
+metric,value,percentage,status
+Total Records,18,100.0,PASS
+Total Columns,14,100.0,PASS
+Missing Values,0,0.0,PASS
+Duplicate Rows,0,0.0,PASS
+Column: timestamp,Missing: 0,0.0,PASS
+Column: user_id,Missing: 0,0.0,PASS
+Column: session_id,Missing: 0,0.0,PASS
+Column: page_path,Missing: 0,0.0,PASS
+Column: page_title,Missing: 0,0.0,PASS
+Column: event_name,Missing: 0,0.0,PASS
+Column: event_value,Missing: 0,0.0,PASS
+event_value - Data Type,float64,100.0,PASS
+Column: user_agent,Missing: 0,0.0,PASS
+Column: country,Missing: 0,0.0,PASS
+Column: city,Missing: 0,0.0,PASS
+Column: device_category,Missing: 0,0.0,PASS
+Column: os,Missing: 0,0.0,PASS
+Column: browser,Missing: 0,0.0,PASS
+Column: traffic_source,Missing: 0,0.0,PASS
+Overall Quality Score,100.00%,100.0,PASS

@@ -1,0 +1,21 @@
+timestamp,user_id,session_id,page_path,page_title,event_name,event_value,user_agent,country,city,device_category,os,browser,traffic_source
+2025-02-01T08:15:23Z,user_001,sess_001,/home,Home,page_view,,Mozilla/5.0 Chrome,US,New York,desktop,Windows,Chrome,organic
+2025-02-01T08:16:45Z,user_001,sess_001,/products,Products,page_view,,Mozilla/5.0 Chrome,US,New York,desktop,Windows,Chrome,organic
+2025-02-01T08:18:32Z,user_001,sess_001,/products/item-1,Product Details,page_view,,Mozilla/5.0 Chrome,US,New York,desktop,Windows,Chrome,organic
+2025-02-01T08:22:10Z,user_001,sess_001,/checkout,Checkout,page_view,,Mozilla/5.0 Chrome,US,New York,desktop,Windows,Chrome,organic
+2025-02-01T08:24:05Z,user_001,sess_001,,Purchase,purchase,99.99,Mozilla/5.0 Chrome,US,New York,desktop,Windows,Chrome,organic
+2025-02-01T09:35:12Z,user_002,sess_002,/home,Home,page_view,,Mozilla/5.0 Safari,UK,London,mobile,iOS,Safari,direct
+2025-02-01T09:36:22Z,user_002,sess_002,/blog,Blog,page_view,,Mozilla/5.0 Safari,UK,London,mobile,iOS,Safari,direct
+2025-02-01T09:38:45Z,user_002,sess_002,/blog/article-1,Article,page_view,,Mozilla/5.0 Safari,UK,London,mobile,iOS,Safari,direct
+2025-02-01T10:15:33Z,user_003,sess_003,/home,Home,page_view,,Googlebot/2.0,US,San Francisco,desktop,Linux,Googlebot,bot_crawler
+2025-02-01T10:20:45Z,user_004,sess_004,/home,Home,page_view,,Mozilla/5.0 Firefox,CA,Toronto,desktop,Mac,Firefox,paid_search
+2025-02-01T10:22:10Z,user_004,sess_004,/products,Products,page_view,,Mozilla/5.0 Firefox,CA,Toronto,desktop,Mac,Firefox,paid_search
+2025-02-01T10:24:32Z,user_004,sess_004,/contact,Contact Us,page_view,,Mozilla/5.0 Firefox,CA,Toronto,desktop,Mac,Firefox,paid_search
+2025-02-01T10:25:55Z,user_004,sess_004,,Contact Form Submit,form_submit,,Mozilla/5.0 Firefox,CA,Toronto,desktop,Mac,Firefox,paid_search
+2025-02-01T11:08:22Z,user_005,sess_005,/home,Home,page_view,,Mozilla/5.0 Chrome,AU,Sydney,mobile,Android,Chrome,social
+2025-02-01T11:10:08Z,user_005,sess_005,/products,Products,page_view,,Mozilla/5.0 Chrome,AU,Sydney,mobile,Android,Chrome,social
+2025-02-01T14:45:33Z,user_006,sess_006,/home,Home,page_view,,Mozilla/5.0 Edge,DE,Berlin,desktop,Windows,Edge,organic
+2025-02-01T14:47:12Z,user_006,sess_006,/blog,Blog,page_view,,Mozilla/5.0 Edge,DE,Berlin,desktop,Windows,Edge,organic
+2025-02-01T14:50:25Z,user_006,sess_006,/products,Products,page_view,,Mozilla/5.0 Edge,DE,Berlin,desktop,Windows,Edge,organic
+2025-02-01T15:22:40Z,user_007,sess_007,/home,Home,page_view,,Bingbot/2.0,US,New York,desktop,Windows,Bingbot,bot_crawler
+2025-02-01T16:10:15Z,user_008,sess_008,/home,Home,page_view,,Mozilla/5.0 Safari,FR,Paris,tablet,iOS,Safari,organic

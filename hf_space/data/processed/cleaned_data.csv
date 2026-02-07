@@ -1,0 +1,19 @@
+timestamp,user_id,session_id,page_path,page_title,event_name,event_value,user_agent,country,city,device_category,os,browser,traffic_source
+2025-02-01 08:15:23+00:00,User_001,Sess_001,/Home,Home,Page_View,99.99,Mozilla/5.0 Chrome,Us,New York,Desktop,Windows,Chrome,Organic
+2025-02-01 08:16:45+00:00,User_001,Sess_001,/Products,Products,Page_View,99.99,Mozilla/5.0 Chrome,Us,New York,Desktop,Windows,Chrome,Organic
+2025-02-01 08:18:32+00:00,User_001,Sess_001,/Products/Item-1,Product Details,Page_View,99.99,Mozilla/5.0 Chrome,Us,New York,Desktop,Windows,Chrome,Organic
+2025-02-01 08:22:10+00:00,User_001,Sess_001,/Checkout,Checkout,Page_View,99.99,Mozilla/5.0 Chrome,Us,New York,Desktop,Windows,Chrome,Organic
+2025-02-01 08:24:05+00:00,User_001,Sess_001,Unknown,Purchase,Purchase,99.99,Mozilla/5.0 Chrome,Us,New York,Desktop,Windows,Chrome,Organic
+2025-02-01 09:35:12+00:00,User_002,Sess_002,/Home,Home,Page_View,99.99,Mozilla/5.0 Safari,Uk,London,Mobile,Ios,Safari,Direct
+2025-02-01 09:36:22+00:00,User_002,Sess_002,/Blog,Blog,Page_View,99.99,Mozilla/5.0 Safari,Uk,London,Mobile,Ios,Safari,Direct
+2025-02-01 09:38:45+00:00,User_002,Sess_002,/Blog/Article-1,Article,Page_View,99.99,Mozilla/5.0 Safari,Uk,London,Mobile,Ios,Safari,Direct
+2025-02-01 10:20:45+00:00,User_004,Sess_004,/Home,Home,Page_View,99.99,Mozilla/5.0 Firefox,Ca,Toronto,Desktop,Mac,Firefox,Paid_Search
+2025-02-01 10:22:10+00:00,User_004,Sess_004,/Products,Products,Page_View,99.99,Mozilla/5.0 Firefox,Ca,Toronto,Desktop,Mac,Firefox,Paid_Search
+2025-02-01 10:24:32+00:00,User_004,Sess_004,/Contact,Contact Us,Page_View,99.99,Mozilla/5.0 Firefox,Ca,Toronto,Desktop,Mac,Firefox,Paid_Search
+2025-02-01 10:25:55+00:00,User_004,Sess_004,Unknown,Contact Form Submit,Form_Submit,99.99,Mozilla/5.0 Firefox,Ca,Toronto,Desktop,Mac,Firefox,Paid_Search
+2025-02-01 11:08:22+00:00,User_005,Sess_005,/Home,Home,Page_View,99.99,Mozilla/5.0 Chrome,Au,Sydney,Mobile,Android,Chrome,Social
+2025-02-01 11:10:08+00:00,User_005,Sess_005,/Products,Products,Page_View,99.99,Mozilla/5.0 Chrome,Au,Sydney,Mobile,Android,Chrome,Social
+2025-02-01 14:45:33+00:00,User_006,Sess_006,/Home,Home,Page_View,99.99,Mozilla/5.0 Edge,De,Berlin,Desktop,Windows,Edge,Organic
+2025-02-01 14:47:12+00:00,User_006,Sess_006,/Blog,Blog,Page_View,99.99,Mozilla/5.0 Edge,De,Berlin,Desktop,Windows,Edge,Organic
+2025-02-01 14:50:25+00:00,User_006,Sess_006,/Products,Products,Page_View,99.99,Mozilla/5.0 Edge,De,Berlin,Desktop,Windows,Edge,Organic
+2025-02-01 16:10:15+00:00,User_008,Sess_008,/Home,Home,Page_View,99.99,Mozilla/5.0 Safari,Fr,Paris,Tablet,Ios,Safari,Organic
