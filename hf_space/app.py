@@ -1,6 +1,7 @@
 """
 Gradio App for Google Analytics Data Cleaning & Visualization
 Mirrors the functionality of streamlit_app.py
+Deploy on Hugging Face Spaces
 """
 
 import gradio as gr
@@ -12,8 +13,87 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import tempfile
 import os
+from datetime import datetime
 
-from data_cleaning_analysis import DataCleaningAnalysis
+# --- DataCleaningAnalysis class (embedded for HF Spaces) ---
+class DataCleaningAnalysis:
+    def __init__(self, data_path='data/raw/google_analytics_export.csv'):
+        self.data_path = data_path
+        self.df = None
+        self.cleaned_df = None
+        
+    def load_data(self):
+        self.df = pd.read_csv(self.data_path)
+        return self.df
+    
+    def initial_assessment(self):
+        pass
+    
+    def remove_duplicates(self):
+        self.df = self.df.drop_duplicates()
+        return self.df
+    
+    def handle_missing_values(self):
+        for col in self.df.columns:
+            if self.df[col].isnull().sum() > 0:
+                if self.df[col].dtype in ['float64', 'int64']:
+                    self.df[col].fillna(self.df[col].median(), inplace=True)
+                else:
+                    self.df[col].fillna('Unknown', inplace=True)
+        return self.df
+    
+    def remove_bot_traffic(self):
+        user_agent_col = None
+        for col in self.df.columns:
+            if 'user_agent' in col.lower() or 'useragent' in col.lower():
+                user_agent_col = col
+                break
+        
+        if user_agent_col:
+            bot_keywords = ['bot', 'crawler', 'spider', 'googlebot']
+            mask = ~self.df[user_agent_col].astype(str).str.lower().str.contains('|'.join(bot_keywords), na=False)
+            self.df = self.df[mask]
+        return self.df
+    
+    def normalize_timezones(self):
+        if 'timestamp' in self.df.columns:
+            self.df['timestamp'] = pd.to_datetime(self.df['timestamp'], utc=True)
+        return self.df
+    
+    def standardize_columns(self):
+        self.df.columns = self.df.columns.str.lower().str.replace(' ', '_')
+        for col in self.df.select_dtypes(include='object').columns:
+            self.df[col] = self.df[col].str.strip().str.title()
+        return self.df
+    
+    def quality_report(self):
+        return self.df
+    
+    def generate_quality_report_csv(self, output_path='quality_report.csv'):
+        quality_metrics = []
+        total_rows = len(self.df)
+        total_cols = len(self.df.columns)
+        missing_total = self.df.isnull().sum().sum()
+        duplicates = self.df.duplicated().sum()
+        
+        quality_metrics.append({'metric': 'Total Records', 'value': total_rows, 'percentage': 100.0, 'status': 'PASS'})
+        quality_metrics.append({'metric': 'Total Columns', 'value': total_cols, 'percentage': 100.0, 'status': 'PASS'})
+        quality_metrics.append({'metric': 'Missing Values', 'value': missing_total, 'percentage': (missing_total / (total_rows * total_cols)) * 100 if total_rows > 0 else 0, 'status': 'PASS' if (missing_total / (total_rows * total_cols)) * 100 < 1 else 'WARNING'})
+        quality_metrics.append({'metric': 'Duplicate Rows', 'value': duplicates, 'percentage': (duplicates / total_rows) * 100 if total_rows > 0 else 0, 'status': 'PASS' if duplicates == 0 else 'FAIL'})
+        
+        for col in self.df.columns:
+            missing_count = self.df[col].isnull().sum()
+            missing_pct = (missing_count / total_rows) * 100 if total_rows > 0 else 0
+            quality_metrics.append({'metric': f'Column: {col}', 'value': f'Missing: {missing_count}', 'percentage': missing_pct, 'status': 'PASS' if missing_pct < 5 else 'WARNING' if missing_pct < 20 else 'FAIL'})
+        
+        passed = sum(1 for m in quality_metrics if m['status'] == 'PASS')
+        total_checks = len(quality_metrics)
+        quality_score = (passed / total_checks) * 100 if total_checks > 0 else 0
+        quality_metrics.append({'metric': 'Overall Quality Score', 'value': f'{quality_score:.2f}%', 'percentage': quality_score, 'status': 'PASS' if quality_score >= 95 else 'WARNING' if quality_score >= 80 else 'FAIL'})
+        
+        report_df = pd.DataFrame(quality_metrics)
+        report_df.to_csv(output_path, index=False)
+        return report_df
 
 # --- Home Tab ---
 def home_content():
@@ -70,13 +150,11 @@ def run_cleaning_pipeline(file):
     if file is None:
         return None, None, "", ""
     
-    # Save uploaded file to temp
     with tempfile.NamedTemporaryFile(delete=False, suffix='.csv') as tmp_input:
         with open(file.name, 'rb') as f:
             tmp_input.write(f.read())
         tmp_input_path = tmp_input.name
     
-    # Create temp output paths
     tmp_cleaned_path = tempfile.mktemp(suffix='_cleaned.csv')
     tmp_quality_path = tempfile.mktemp(suffix='_quality_report.csv')
     
@@ -127,7 +205,6 @@ def visualize_column(file, column):
     if column not in df.columns:
         return None, "", "", "", ""
     
-    # Create histogram
     fig, ax = plt.subplots(figsize=(10, 6))
     df[column].hist(bins=50, ax=ax, edgecolor='black', color='#1f77b4')
     ax.set_title(f'Distribution of {column}', fontsize=14)
@@ -135,7 +212,6 @@ def visualize_column(file, column):
     ax.set_ylabel('Frequency')
     plt.tight_layout()
     
-    # Statistics
     mean_val = f"{df[column].mean():.2f}"
     median_val = f"{df[column].median():.2f}"
     std_val = f"{df[column].std():.2f}"
@@ -171,17 +247,16 @@ footer_html = """
 """
 
 
+
 # --- Build Gradio App ---
 with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.themes.Soft()) as demo:
     gr.Markdown("# 📊 Google Analytics Data Cleaning & Visualization")
     gr.Markdown("Professional data wrangling & business intelligence project")
     
     with gr.Tabs():
-        # Home Tab
         with gr.Tab("🏠 Home"):
             gr.Markdown(home_content())
         
-        # Data Overview Tab
         with gr.Tab("📈 Data Overview"):
             with gr.Row():
                 overview_file = gr.File(label="Upload Google Analytics CSV file", file_types=[".csv"])
@@ -198,18 +273,9 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
             gr.Markdown("### Data Types")
             overview_types = gr.Dataframe(label="Column Information")
             
-            overview_file.change(
-                fn=data_overview,
-                inputs=[overview_file],
-                outputs=[overview_preview, total_records, total_columns, memory_usage, missing_values]
-            )
-            overview_file.change(
-                fn=data_types_info,
-                inputs=[overview_file],
-                outputs=[overview_types]
-            )
+            overview_file.change(fn=data_overview, inputs=[overview_file], outputs=[overview_preview, total_records, total_columns, memory_usage, missing_values])
+            overview_file.change(fn=data_types_info, inputs=[overview_file], outputs=[overview_types])
         
-        # Data Cleaning Tab
         with gr.Tab("🧹 Data Cleaning"):
             with gr.Row():
                 cleaning_file = gr.File(label="Upload CSV file for cleaning", file_types=[".csv"])
@@ -224,19 +290,13 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
                 cleaned_file_output = gr.File(label="Download Cleaned Data")
                 quality_file_output = gr.File(label="Download Quality Report")
             
-            run_btn.click(
-                fn=run_cleaning_pipeline,
-                inputs=[cleaning_file],
-                outputs=[cleaned_file_output, quality_file_output, original_records, cleaned_records]
-            )
+            run_btn.click(fn=run_cleaning_pipeline, inputs=[cleaning_file], outputs=[cleaned_file_output, quality_file_output, original_records, cleaned_records])
         
-        # Visualizations Tab
         with gr.Tab("📊 Visualizations"):
             with gr.Row():
                 viz_file = gr.File(label="Upload cleaned CSV file", file_types=[".csv"])
             
             column_dropdown = gr.Dropdown(label="Select column to visualize", choices=[], interactive=True)
-            
             viz_plot = gr.Plot(label="Distribution")
             
             with gr.Row():
@@ -245,18 +305,9 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
                 std_box = gr.Textbox(label="Std Dev", interactive=False)
                 minmax_box = gr.Textbox(label="Min / Max", interactive=False)
             
-            viz_file.change(
-                fn=get_numeric_columns,
-                inputs=[viz_file],
-                outputs=[column_dropdown]
-            )
-            column_dropdown.change(
-                fn=visualize_column,
-                inputs=[viz_file, column_dropdown],
-                outputs=[viz_plot, mean_box, median_box, std_box, minmax_box]
-            )
+            viz_file.change(fn=get_numeric_columns, inputs=[viz_file], outputs=[column_dropdown])
+            column_dropdown.change(fn=visualize_column, inputs=[viz_file, column_dropdown], outputs=[viz_plot, mean_box, median_box, std_box, minmax_box])
         
-        # Quality Report Tab
         with gr.Tab("📋 Quality Report"):
             with gr.Row():
                 quality_file = gr.File(label="Upload data quality report CSV", file_types=[".csv"])
@@ -268,11 +319,7 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
                 warnings_box = gr.Textbox(label="⚠️ Warnings", interactive=False)
                 failed_box = gr.Textbox(label="❌ Failed", interactive=False)
             
-            quality_file.change(
-                fn=display_quality_report,
-                inputs=[quality_file],
-                outputs=[quality_df, passed_box, warnings_box, failed_box]
-            )
+            quality_file.change(fn=display_quality_report, inputs=[quality_file], outputs=[quality_df, passed_box, warnings_box, failed_box])
     
     gr.HTML(footer_html)
 

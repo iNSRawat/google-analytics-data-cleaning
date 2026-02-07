@@ -101,22 +101,27 @@ def render_footer():
             
             # Donation Section
             st.markdown("#### 💰 You can help me by Donating")
-            col1, col2 = st.columns(2)
+            col1, col2, col3 = st.columns(3)
             with col1:
                 st.markdown(
-                    '<a href="https://www.buymeacoffee.com/nsrawat" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #FFDD00; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">☕ Buy Me a Coffee</div></a>',
+                    '<a href="https://www.buymeacoffee.com/nsrawat?ref=Streamlit.app" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #FFDD00; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">☕ Buy Me a Coffee</div></a>',
                     unsafe_allow_html=True
                 )
             with col2:
                 st.markdown(
-                    '<a href="https://paypal.me/NRawat710" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #00457C; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">💳 PayPal</div></a>',
+                    '<a href="https://paypal.me/NRawat710?ref=Streamlit.app" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #00457C; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">💳 PayPal</div></a>',
+                    unsafe_allow_html=True
+                )
+            with col3:
+                st.markdown(
+                    '<a href="https://withupi.com/@nsrawat?ref=Streamlit.app" target="_blank" style="text-decoration: none; color: white !important;"><div style="background-color: #4CAF50; color: white !important; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; display: inline-block; width: 100%;">₹ UPI</div></a>',
                     unsafe_allow_html=True
                 )
             
             # Author Credit
             st.markdown("---")
             st.markdown(
-                '<div style="text-align: center; padding: 20px 0;"><p style="margin: 0; font-size: 14px;">Made with ❤️ by <a href="https://nsrawat.in" target="_blank" style="text-decoration: underline; color: #1f77b4;">N S Rawat</a></p></div>',
+                '<div style="text-align: center; padding: 20px 0;"><p style="margin: 0; font-size: 14px;">Made with ❤️ by <a href="https://nsrawat.in" target="_blank" style="text-decoration: underline; color: #1f77b4;">N S Rawat</a> | <a href="https://github.com/iNSRawat" target="_blank" style="text-decoration: underline; color: #1f77b4;">GitHub</a> | <a href="https://github.com/iNSRawat/data-cleaning-visualization" target="_blank" style="text-decoration: underline; color: #1f77b4;">Project Repo</a></p></div>',
                 unsafe_allow_html=True
             )
             # #region agent log
