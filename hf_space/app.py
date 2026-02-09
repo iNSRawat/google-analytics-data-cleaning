@@ -273,8 +273,8 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
             gr.Markdown("### Data Types")
             overview_types = gr.Dataframe(label="Column Information")
             
-            overview_file.change(fn=data_overview, inputs=[overview_file], outputs=[overview_preview, total_records, total_columns, memory_usage, missing_values])
-            overview_file.change(fn=data_types_info, inputs=[overview_file], outputs=[overview_types])
+            overview_file.change(fn=data_overview, inputs=[overview_file], outputs=[overview_preview, total_records, total_columns, memory_usage, missing_values], api_name=False)
+            overview_file.change(fn=data_types_info, inputs=[overview_file], outputs=[overview_types], api_name=False)
         
         with gr.Tab("🧹 Data Cleaning"):
             with gr.Row():
@@ -290,7 +290,7 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
                 cleaned_file_output = gr.File(label="Download Cleaned Data")
                 quality_file_output = gr.File(label="Download Quality Report")
             
-            run_btn.click(fn=run_cleaning_pipeline, inputs=[cleaning_file], outputs=[cleaned_file_output, quality_file_output, original_records, cleaned_records])
+            run_btn.click(fn=run_cleaning_pipeline, inputs=[cleaning_file], outputs=[cleaned_file_output, quality_file_output, original_records, cleaned_records], api_name="run_cleaning")
         
         with gr.Tab("📊 Visualizations"):
             with gr.Row():
@@ -305,8 +305,8 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
                 std_box = gr.Textbox(label="Std Dev", interactive=False)
                 minmax_box = gr.Textbox(label="Min / Max", interactive=False)
             
-            viz_file.change(fn=get_numeric_columns, inputs=[viz_file], outputs=[column_dropdown])
-            column_dropdown.change(fn=visualize_column, inputs=[viz_file, column_dropdown], outputs=[viz_plot, mean_box, median_box, std_box, minmax_box])
+            viz_file.change(fn=get_numeric_columns, inputs=[viz_file], outputs=[column_dropdown], api_name=False)
+            column_dropdown.change(fn=visualize_column, inputs=[viz_file, column_dropdown], outputs=[viz_plot, mean_box, median_box, std_box, minmax_box], api_name=False)
         
         with gr.Tab("📋 Quality Report"):
             with gr.Row():
@@ -319,7 +319,7 @@ with gr.Blocks(title="Google Analytics Data Cleaning & Visualization", theme=gr.
                 warnings_box = gr.Textbox(label="⚠️ Warnings", interactive=False)
                 failed_box = gr.Textbox(label="❌ Failed", interactive=False)
             
-            quality_file.change(fn=display_quality_report, inputs=[quality_file], outputs=[quality_df, passed_box, warnings_box, failed_box])
+            quality_file.change(fn=display_quality_report, inputs=[quality_file], outputs=[quality_df, passed_box, warnings_box, failed_box], api_name=False)
     
     gr.HTML(footer_html)
 
