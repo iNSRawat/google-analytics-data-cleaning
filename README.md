@@ -1,5 +1,5 @@
 ---
-title: Google Analytics Data Cleaning Automated ETL Pipeline for Analytics Data
+title: Google Analytics Data Cleaning Automated
 emoji: 📊
 colorFrom: blue
 colorTo: purple
@@ -10,7 +10,7 @@ pinned: false
 license: mit
 ---
 
-# Google Analytics Data Cleaning & Visualization
+# Google Analytics Data Cleaning & Visualization ETL Pipeline for Analytics Data
 
 [<img src="https://www.kaggle.com/static/images/site-logo.svg" alt="Kaggle" height="28"/>](https://www.kaggle.com/code/nsrawat/google-analytics-data-cleaning-visualization)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://data-cleaning-visualization.streamlit.app/)
